@@ -200,7 +200,7 @@ void setup() {
      }
      serverCapture();
      //ESP.deepSleep(1.08e10); // Uncoment this for 3 hour sleep mode
-     ESP.deepSleep(60e6); // Uncoment this for 20 second sleep mode
+     ESP.deepSleep(60e6); // Uncoment this for 60 second sleep mode
 }
 void loop() {
 
