@@ -126,7 +126,8 @@ Serial.println(len);
   Serial.println("-------");
   Serial.println("Posting Voltage Value");
   HTTPClient http;
-  batteryVoltage = 0.00478 * analogRead(A0) - 0.015; //scale that 1V max to 0-4.5V
+  // batteryVoltage = 0.00478 * analogRead(A0) - 0.015; //scale that 1V max to 0-4.5V
+  batteryVoltage = 0.00342 * analogRead(A0) + .823; //scale that 1V max to 0-4.5V
   String voltageData = "{\"voltage\":"+String(batteryVoltage)+"}";
   String postTo = "http://"+String(host)+":"+httpPort+""+voltage_url;
   Serial.println(voltageData);
@@ -138,8 +139,8 @@ Serial.println(len);
   Serial.println(httpCode);
   Serial.println(payload);
   http.end();  //Close connection
-  Serial.println("----Done----");  
-  
+  Serial.println("----Done----");
+
 }
 void serverCapture() {
   start_capture();
@@ -253,4 +254,3 @@ void loop() {
   digitalWrite(DONEpin, LOW);
   delay(100);
 }
-
